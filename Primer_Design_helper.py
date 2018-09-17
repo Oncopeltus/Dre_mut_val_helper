@@ -12,7 +12,7 @@ def rev_comp(seq):
 			'g': 'c',
 			'c': 'g',
 			} # Creat dictionary for complement A,T,G,C
-	rev_seq = seq[::01] # reverse the input sequence
+	rev_seq = seq[::-1] # reverse the input sequence
 	rev_comp_seq = '' # Creat empty string for output sequence
 	for n in rev_seq: # Creat the string by adding the complement NA one by one
 		rev_comp_seq += comp_dict[n]
@@ -66,9 +66,6 @@ def amplicon_extractor(gene_name, Chr-num, gene_start, gene_end, gRNA_seq1, gRNA
 	chromosome_seq = chromosome_seq.upper()
 	gene_seq = chromosome_sq[gene_start : gene_end + 1].upper()
 	sgRNA_loc1 = locate_seq(gRNA_seq1, gene_seq)
-	#if gRNA_seq2.isdigit() == 1:
-		#sgRNA_loc2 = sgRNA_loc1 + len(gRNA_seq1)
-		#else:
 	sgRNA_loc2 = locate_seq(gRNA_seq2, gene_seq)
 	if sgRNA_loc1 > 150:
 		location_mark_1 = min([sgRNA_loc1, sgRNA_loc2]) - 150
